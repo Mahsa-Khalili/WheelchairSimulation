@@ -7,6 +7,6 @@
     name="spawn_model"
     pkg="gazebo_ros"
     type="spawn_model"
-    args="-file $(find wheelchair_description)/urdf/wheelchair.urdf -urdf -z 0.3  -P 0.2 -model wheelchair "
+    args="-file $(find wheelchair_description)/urdf/wheelchair.urdf -urdf -z 0.3  -P 0.15 -model wheelchair "
     output="screen" />
 </launch>
