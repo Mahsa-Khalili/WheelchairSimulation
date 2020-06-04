@@ -1,12 +1,15 @@
 <launch>
+
+  <!-- Load the wheelchair URDF model into the parameter server -->
+  <param name="robot_description" textfile="$(find wheelchair_description)/urdf/wheelchair.urdf" />
+
   <include
     file="$(find gazebo_ros)/launch/empty_world.launch" />
-    <arg name="world_name" value="$(find wheelchair_gazebo)/worlds/wheelchair.world"/>
 
   <node
     name="spawn_model"
     pkg="gazebo_ros"
     type="spawn_model"
-    args="-file $(find wheelchair_description)/urdf/wheelchair.urdf -urdf -z 0.3  -P 0.15 -model wheelchair "
+    args="-param robot_description  -urdf -z 0.3  -P 0.15 -model wheelchair "
     output="screen" />
 </launch>
