@@ -16,4 +16,9 @@
     type="spawn_model"
     args="-param robot_description  -urdf -z 0.31  -P 0.12 -model wheelchair "
     output="screen" />
+
+  <node name="robot_state_publisher" pkg="robot_state_publisher"
+        type="robot_state_publisher"/>
+
+
 </launch>

@@ -417,7 +417,7 @@
       <odometrySource>1</odometrySource>
 
       <!-- Set to true to publish transforms for the wheel links, defaults to false -->
-      <publishWheelTF>true</publishWheelTF>
+      <publishWheelTF>false</publishWheelTF>
 
       <!-- Set to true to publish transforms for the odometry, defaults to true -->
       <publishOdom>true</publishOdom>
@@ -426,5 +426,13 @@
       <publishWheelJointState>true</publishWheelJointState>
     </plugin>
   </gazebo>
+
+  <gazebo>
+    <plugin name="joint_state_publisher"
+    filename="libgazebo_ros_joint_state_publisher.so">
+    <jointName>Caster_cont, WheelF_cont, SwingR_rev, SwingL_rev</jointName>
+    </plugin>
+  </gazebo>
+
 
 </robot>
