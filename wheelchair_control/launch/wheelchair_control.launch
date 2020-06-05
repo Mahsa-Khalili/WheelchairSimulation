@@ -1,0 +1,18 @@
+<launch>
+
+  <!-- Load joint controller configurations from YAML file to parameter server -->
+  <rosparam file="$(find wheelchair_control)/config/wheelchair_control.yaml" command="load"/>
+
+  <!-- Load the controllers -->
+  <node 
+    name="controller_spawner" 
+    pkg="controller_manager" 
+    type="spawner" 
+    respawn="false"  
+    output="screen" 
+    ns="/wheelchair"
+    args="SwingL_controller
+          SwingR_controller
+          joint_state_controller"/>
+
+</launch>

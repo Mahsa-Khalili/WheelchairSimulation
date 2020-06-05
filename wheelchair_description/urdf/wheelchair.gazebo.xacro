@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.5.1-0-g916b5db  Build Version: 1.5.7152.31018
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot>
+
+  <gazebo>
+    <plugin name="differential_drive_controller"
+            filename="libgazebo_ros_diff_drive.so">
+      <leftJoint>WheelL_cont</leftJoint>
+      <rightJoint>WheelR_cont</rightJoint>
+      <!-- Robot frame to calculate odometry from, defaults to `base_footprint` -->
+      <wheelSeparation>0.52728</wheelSeparation>
+      <wheelDiameter>0.635</wheelDiameter>
+      <!-- Wheel acceleration, in rad/s^2, defaults to 0.0 rad/s^2 -->
+      <wheelAcceleration>1.0</wheelAcceleration>
+
+      <!-- Maximum torque which the wheels can produce, in Nm, defaults to 5 Nm -->
+      <wheelTorque>20</wheelTorque>
+
+      <!-- Topic to receive geometry_msgs/Twist message commands, defaults to `cmd_vel` -->
+      <commandTopic>cmd_vel</commandTopic>
+
+      <!-- Topic to publish nav_msgs/Odometry messages, defaults to `odom` -->
+      <odometryTopic>odom</odometryTopic>
+
+      <!-- Odometry frame, defaults to `odom` -->
+      <odometryFrame>odom</odometryFrame>
+
+      <!-- Robot frame to calculate odometry from, defaults to `base_footprint` -->
+      <robotBaseFrame>Frame</robotBaseFrame>
+
+      <!-- Odometry source, 0 for ENCODER, 1 for WORLD, defaults to WORLD -->
+      <odometrySource>1</odometrySource>
+
+      <!-- Set to true to publish transforms for the wheel links, defaults to false -->
+      <publishWheelTF>false                                                                                                                                                                                                                               </publishWheelTF>
+
+      <!-- Set to true to publish transforms for the odometry, defaults to true -->
+      <publishOdom>true</publishOdom>
+
+      <!-- Set to true to publish sensor_msgs/JointState on /joint_states for the wheel joints, defaults to false -->
+      <publishWheelJointState>true</publishWheelJointState>
+    </plugin>
+  </gazebo>
+
+  <gazebo>
+    <plugin name="joint_state_publisher"
+    filename="libgazebo_ros_joint_state_publisher.so">
+    <jointName>Caster_cont, WheelF_cont, SwingR_rev, SwingL_rev, WheelL_cont, WheelR_cont</jointName>
+    </plugin>
+  </gazebo>
+
+  <!-- ros_control plugin -->
+  <gazebo>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+      <robotNamespace>/wheelchair</robotNamespace>
+      <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+    </plugin>
+  </gazebo>
+
+  <!--gazebo reference="WheelL">
+    <mu1>0.2</mu1>
+    <mu2>0.2</mu2>
+  </gazebo-->
+</robot>

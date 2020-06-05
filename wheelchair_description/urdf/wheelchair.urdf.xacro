@@ -2,10 +2,15 @@
 <!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
      Commit Version: 1.5.1-0-g916b5db  Build Version: 1.5.7152.31018
      For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
-<robot
-  name="wheelchair">
-  <link
-    name="Frame">
+<robot name="wheelchair" xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <!-- Import all Gazebo-customization elements, including Gazebo colors -->
+  <xacro:include filename="$(find wheelchair_description)/urdf/wheelchair.gazebo.xacro" />
+  
+  <!--extra dummy link -->
+  <link name="Dummy" />
+
+  <link name="Frame">
     <inertial>
       <origin
         xyz="-0.222515731055045 0.00824844167707826 0.220278773868655"
@@ -20,6 +25,7 @@
         iyz="3.20069324721788E-09"
         izz="0.20373752352134" />
     </inertial>
+
     <visual>
       <origin
         xyz="0 0 0"
@@ -34,6 +40,7 @@
           rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
       </material>
     </visual>
+
     <collision>
       <origin
         xyz="0 0 0"
@@ -44,8 +51,13 @@
       </geometry>
     </collision>
   </link>
-  <link
-    name="Caster">
+
+  <joint name="dummy_joint" type="fixed">
+     <parent link="Dummy"/>
+     <child link="Frame"/>
+  </joint>
+
+  <link name="Caster">
     <inertial>
       <origin
         xyz="-0.018675 -0.0023779 -0.066791"
@@ -60,6 +72,7 @@
         iyz="-1.2968E-05"
         izz="0.00012277" />
     </inertial>
+
     <visual>
       <origin
         xyz="0 0 0"
@@ -74,6 +87,7 @@
           rgba="0.89804 0.91765 0.92941 1" />
       </material>
     </visual>
+
     <collision>
       <origin
         xyz="0 0 0"
@@ -84,9 +98,8 @@
       </geometry>
     </collision>
   </link>
-  <joint
-    name="Caster_cont"
-    type="continuous">
+
+  <joint name="Caster_cont" type="continuous">
     <origin
       xyz="0.5078 0 0.00635"
       rpy="0 0 0" />
@@ -100,8 +113,8 @@
       effort="0"
       velocity="20" />
   </joint>
-  <link
-    name="WheelF">
+
+  <link name="WheelF">
     <inertial>
       <origin
         xyz="0 0 -2.7756E-17"
@@ -116,6 +129,7 @@
         iyz="-3.0141E-20"
         izz="0.0052886" />
     </inertial>
+
     <visual>
       <origin
         xyz="0 0 0"
@@ -130,6 +144,7 @@
           rgba="0.89804 0.91765 0.92941 1" />
       </material>
     </visual>
+
     <collision>
       <origin
         xyz="0 0 0"
@@ -140,9 +155,8 @@
       </geometry>
     </collision>
   </link>
-  <joint
-    name="WheelF_cont"
-    type="continuous">
+
+  <joint name="WheelF_cont"  type="continuous">
     <origin
       xyz="-0.0518843000619276 -0.00660668610975347 -0.1478026"
       rpy="0 0 0.126653383400985" />
@@ -156,8 +170,8 @@
       effort="0"
       velocity="20" />
   </joint>
-  <link
-    name="SwingR">
+
+  <link name="SwingR">
     <inertial>
       <origin
         xyz="-0.14883 0.054597 -0.033745"
@@ -172,6 +186,7 @@
         iyz="3.9175E-05"
         izz="0.018459" />
     </inertial>
+
     <visual>
       <origin
         xyz="0 0 0"
@@ -186,6 +201,7 @@
           rgba="0.75294 0.75294 0.75294 1" />
       </material>
     </visual>
+
     <collision>
       <origin
         xyz="0 0 0"
@@ -196,9 +212,8 @@
       </geometry>
     </collision>
   </link>
-  <joint
-    name="SwingR_rev"
-    type="revolute">
+
+  <joint  name="SwingR_rev" type="revolute">
     <origin
       xyz="-0.106 -0.2118548 -0.0238887"
       rpy="0 0 0" />
@@ -215,8 +230,8 @@
       velocity="2" />
     <dynamics damping="0.7" friction="0.0"/>
   </joint>
-  <link
-    name="WheelR">
+
+  <link name="WheelR">
     <inertial>
       <origin
         xyz="1.8579E-05 -0.0076777 -2.2937E-05"
@@ -231,6 +246,7 @@
         iyz="-4.0261E-07"
         izz="0.07871" />
     </inertial>
+
     <visual>
       <origin
         xyz="0 0 0"
@@ -245,6 +261,7 @@
           rgba="0.75294 0.75294 0.75294 1" />
       </material>
     </visual>
+
     <collision>
       <origin
         xyz="0 0 0"
@@ -255,9 +272,8 @@
       </geometry>
     </collision>
   </link>
-  <joint
-    name="WheelR_cont"
-    type="continuous">
+
+  <joint name="WheelR_cont" type="continuous">
     <origin
       xyz="-0.232195893808092 -0.0517862 -0.0361948462997351"
       rpy="0 0 0" />
@@ -271,8 +287,8 @@
       effort="0"
       velocity="16.25" />
   </joint>
-  <link
-    name="SwingL">
+
+  <link name="SwingL">
     <inertial>
       <origin
         xyz="-0.15869 -0.056844 -0.023612"
@@ -287,6 +303,7 @@
         iyz="1.5901E-05"
         izz="0.0099363" />
     </inertial>
+
     <visual>
       <origin
         xyz="0 0 0"
@@ -301,6 +318,7 @@
           rgba="0.75294 0.75294 0.75294 1" />
       </material>
     </visual>
+
     <collision>
       <origin
         xyz="0 0 0"
@@ -311,9 +329,8 @@
       </geometry>
     </collision>
   </link>
-  <joint
-    name="SwingL_rev"
-    type="revolute">
+
+  <joint name="SwingL_rev" type="revolute">
     <origin
       xyz="-0.106 0.20947 -0.023889"
       rpy="0 0 0" />
@@ -330,8 +347,8 @@
       velocity="2" />
     <dynamics damping="0.7" friction="0.0"/>
   </joint>
-  <link
-    name="WheelL">
+
+  <link name="WheelL">
     <inertial>
       <origin
         xyz="1.8579E-05 0.0076777 -2.2937E-05"
@@ -346,6 +363,7 @@
         iyz="4.0261E-07"
         izz="0.07871" />
     </inertial>
+
     <visual>
       <origin
         xyz="0 0 0"
@@ -360,6 +378,7 @@
           rgba="0.75294 0.75294 0.75294 1" />
       </material>
     </visual>
+
     <collision>
       <origin
         xyz="0 0 0"
@@ -370,9 +389,8 @@
       </geometry>
     </collision>
   </link>
-  <joint
-    name="WheelL_cont"
-    type="continuous">
+
+  <joint name="WheelL_cont" type="continuous">
     <origin
       xyz="-0.2322 0.054167 -0.036195"
       rpy="0 0 0" />
@@ -387,60 +405,13 @@
       velocity="16.25" />
   </joint>
 
-  <gazebo>
-    <plugin name="differential_drive_controller"
-            filename="libgazebo_ros_diff_drive.so">
-      <leftJoint>WheelL_cont</leftJoint>
-      <rightJoint>WheelR_cont</rightJoint>
-      <!-- Robot frame to calculate odometry from, defaults to `base_footprint` -->
-      <wheelSeparation>0.52728</wheelSeparation>
-      <wheelDiameter>0.635</wheelDiameter>
-      <!-- Wheel acceleration, in rad/s^2, defaults to 0.0 rad/s^2 -->
-      <wheelAcceleration>1.0</wheelAcceleration>
-
-      <!-- Maximum torque which the wheels can produce, in Nm, defaults to 5 Nm -->
-      <wheelTorque>20</wheelTorque>
-
-      <!-- Topic to receive geometry_msgs/Twist message commands, defaults to `cmd_vel` -->
-      <commandTopic>cmd_vel</commandTopic>
-
-      <!-- Topic to publish nav_msgs/Odometry messages, defaults to `odom` -->
-      <odometryTopic>odom</odometryTopic>
-
-      <!-- Odometry frame, defaults to `odom` -->
-      <odometryFrame>odom</odometryFrame>
-
-      <!-- Robot frame to calculate odometry from, defaults to `base_footprint` -->
-      <robotBaseFrame>Frame</robotBaseFrame>
-
-      <!-- Odometry source, 0 for ENCODER, 1 for WORLD, defaults to WORLD -->
-      <odometrySource>1</odometrySource>
-
-      <!-- Set to true to publish transforms for the wheel links, defaults to false -->
-      <publishWheelTF>false                                                                                                                                                                                                                               </publishWheelTF>
-
-      <!-- Set to true to publish transforms for the odometry, defaults to true -->
-      <publishOdom>true</publishOdom>
-
-      <!-- Set to true to publish sensor_msgs/JointState on /joint_states for the wheel joints, defaults to false -->
-      <publishWheelJointState>true</publishWheelJointState>
-    </plugin>
-  </gazebo>
-
-  <gazebo>
-    <plugin name="joint_state_publisher"
-    filename="libgazebo_ros_joint_state_publisher.so">
-    <jointName>Caster_cont, WheelF_cont, SwingR_rev, SwingL_rev, WheelL_cont, WheelR_cont</jointName>
-    </plugin>
-  </gazebo>
-
   <transmission name="SwingL_trans">
     <type>transmission_interface/SimpleTransmission</type>
     <actuator name="SwingL_motor">
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
     <joint name="SwingL_rev">
-      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
   </transmission>  
 
@@ -450,15 +421,9 @@
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
     <joint name="SwingR_rev">
-      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
   </transmission> 
 
-  <gazebo>
-    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
-      <robotNamespace>/wheelchair</robotNamespace>
-    </plugin>
-  </gazebo>
-
-
+  
 </robot>

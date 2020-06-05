@@ -440,7 +440,7 @@
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
     <joint name="SwingL_rev">
-      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
     </joint>
   </transmission>  
 
@@ -450,15 +450,12 @@
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
     <joint name="SwingR_rev">
-      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
     </joint>
   </transmission> 
 
   <gazebo>
-    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
-      <robotNamespace>/wheelchair</robotNamespace>
-    </plugin>
+    <plugin name="control" filename="libgazebo_ros_control.so"/>
   </gazebo>
-
 
 </robot>
