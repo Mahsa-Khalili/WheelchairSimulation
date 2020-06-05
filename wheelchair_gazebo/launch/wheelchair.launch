@@ -2,6 +2,7 @@
 
   <!-- Load the wheelchair URDF model into the parameter server -->
   <param name="robot_description" textfile="$(find wheelchair_description)/urdf/wheelchair.urdf" />
+  <rosparam file="$(find wheelchair_gazebo)/yaml/controllers.yaml" command="load"/>
 
   <!-- Start Gazebo with an empty world -->
   <include
@@ -16,7 +17,8 @@
     type="spawn_model"
     args="-param robot_description  -urdf -z 0.31  -P 0.12 -model wheelchair "
     output="screen" />
-
+    
+  <!-- convert joint states to TF transforms for rviz, etc -->
   <node name="robot_state_publisher" pkg="robot_state_publisher"
         type="robot_state_publisher"/>
   <node
@@ -24,5 +26,8 @@
     pkg="rviz"
     type="rviz"
     args="-d $(find wheelchair_gazebo)/launch/config.rviz" />
+
+  <node name="controller_spawner" pkg="controller_manager" type="spawner"
+        args="arm_controller"/>
 
 </launch>
