@@ -145,7 +145,7 @@
     type="continuous">
     <origin
       xyz="-0.0518843000619276 -0.00660668610975347 -0.1478026"
-      rpy="0 0 0.126653383400985" />
+      rpy="0 0 0.0" />
     <parent
       link="Caster" />
     <child
@@ -209,8 +209,8 @@
     <axis
       xyz="0 1 0" />
     <limit
-      lower="0"
-      upper="0.67265"
+      lower="-0.51732"
+      upper="0.15533"
       effort="0"
       velocity="2" />
     <dynamics damping="0.7" friction="0.0"/>
@@ -275,17 +275,17 @@
     name="SwingL">
     <inertial>
       <origin
-        xyz="-0.15869 -0.056844 -0.023612"
+        xyz="-0.14883 -0.054597 -0.033745"
         rpy="0 0 0" />
       <mass
-        value="3.4241" />
+        value="4.8363" />
       <inertia
-        ixx="0.0064026"
-        ixy="0.00029746"
-        ixz="-0.002243"
-        iyy="0.012384"
-        iyz="1.5901E-05"
-        izz="0.0099363" />
+        ixx="0.0094524"
+        ixy="0.00067415"
+        ixz="-0.0056619"
+        iyy="0.022613"
+        iyz="-3.9175E-05"
+        izz="0.018459" />
     </inertial>
     <visual>
       <origin
@@ -324,8 +324,8 @@
     <axis
       xyz="0 1 0" />
     <limit
-      lower="0"
-      upper="0.67265"
+      lower="-0.51732"
+      upper="0.15533"
       effort="0"
       velocity="2" />
     <dynamics damping="0.7" friction="0.0"/>
@@ -459,6 +459,4 @@
       <robotNamespace>/wheelchair</robotNamespace>
     </plugin>
   </gazebo>
-
-
 </robot>
