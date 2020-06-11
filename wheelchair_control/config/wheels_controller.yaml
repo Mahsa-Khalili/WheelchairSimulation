@@ -1,0 +1,38 @@
+
+# Publish all joint states -----------------------------------
+joint_state_controller:
+  type: joint_state_controller/JointStateController
+  publish_rate: 50
+
+
+mobile_base_controller:
+  type: "diff_drive_controller/DiffDriveController"
+  publish_rate: 50
+
+  left_wheel: WheelL_cont
+  right_wheel: WheelR_cont
+
+  # Wheel separation and diameter. 
+  wheel_separation : 0.52728
+  wheel_radius : 0.3175
+
+  pose_covariance_diagonal: [0.001, 0.001, 0.001, 0.0010, 0.001, 0.003]
+  twist_covariance_diagonal: [0.001, 0.001, 0.001, 0.0010, 0.001, 0.003] 
+
+  publish_cmd: true
+
+  base_frame_id: base_link
+
+   # Velocity and acceleration limits for the robot
+  linear:
+   x:
+     has_velocity_limits    : true
+     max_velocity           : 1  # m/s
+     has_acceleration_limits: true
+     max_acceleration       : 3   # m/s^2
+  angular:
+   z:
+     has_velocity_limits    : true
+     max_velocity           : 1   # rad/s
+     has_acceleration_limits: true
+     max_acceleration       : 3   # rad/s^2

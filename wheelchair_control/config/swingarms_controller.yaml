@@ -1,0 +1,10 @@
+# Position Controllers ---------------------------------------
+SwingL_controller:
+  type: effort_controllers/JointPositionController
+  joint: SwingL_rev
+  pid: {p: 100.0, i: 0.01, d: 10.0}
+  
+SwingR_controller:
+  type: effort_controllers/JointPositionController
+  joint: SwingR_rev
+  pid: {p: 100.0, i: 0.01, d: 10.0}

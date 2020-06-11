@@ -1,0 +1,38 @@
+<launch>
+
+  <!-- Load the URDF model into the ROS parameter server -->
+  <param name="robot_description" textfile="$(find wheelchair_description)/urdf/wheelchair.urdf" />
+
+  <!-- Load the URDF into the ROS Parameter Server -->
+  <param name="robot_description" command="$(find xacro)/xacro --inorder $(find wheelchair_description)/urdf/wheelchair.urdf.xacro" />
+
+  <!-- Start Gazebo with an empty world -->
+  <include
+    file="$(find gazebo_ros)/launch/empty_world.launch" >
+    <arg name="verbose" value="true"/>
+   </include>
+ 
+  <!-- Spawn wheelchair model in Gazebo, taking the description from the parameter server -->
+  <node
+    name="spawn_model"
+    pkg="gazebo_ros"
+    type="spawn_model"
+    args="-param robot_description  -urdf -z 0.31  -P 0.12 -model wheelchair "
+    output="screen" />
+
+
+
+  <node
+    name="rviz"
+    pkg="rviz"
+    type="rviz"
+    args="-d $(find wheelchair_gazebo)/launch/config.rviz" />
+
+  <!-- convert joint states to TF transforms for rviz, etc -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher"
+        type="robot_state_publisher"/>
+
+  <!-- ros_control rrbot launch file -->
+  <include file="$(find wheelchair_control)/launch/wheelchair_control.launch"/>
+
+</launch>

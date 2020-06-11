@@ -1,8 +1,9 @@
 <?xml version="1.0"?>
 <launch>
 
-  <!-- Load the URDF model into the ROS parameter server -->
-  <param name="robot_description" textfile="$(find wheelchair_description)/urdf/wheelchair.urdf" />
+  <!-- Load the URDF into the ROS Parameter Server -->
+  <param name="robot_description" command="$(find xacro)/xacro $(find wheelchair_description)/urdf/wheelchair.urdf.xacro" />
+
   <!-- Define wheelchair's default pose -->
   <arg name="x_pos" default="0"/>
   <arg name="y_pos" default="0"/>
@@ -23,8 +24,6 @@
     type="rviz"
     args="-d $(find wheelchair_gazebo)/launch/config.rviz" />
 
-  <!-- Load the URDF into the ROS Parameter Server -->
-  <param name="robot_description" command="$(find xacro)/xacro $(find wheelchair_description)/urdf/wheelchair.urdf.xacro" />
 
   <!-- Run a python script to the send a service call to gazebo_ros to spawn a URDF robot -->
   <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
