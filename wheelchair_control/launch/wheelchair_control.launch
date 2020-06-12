@@ -17,7 +17,6 @@
     args="/SwingL_controller
           /SwingR_controller
           /joint_state_controller
-          /mobile_base_controller
-          --shutdown-timeout 3"/>
+          /mobile_base_controller"/>
 
 </launch>

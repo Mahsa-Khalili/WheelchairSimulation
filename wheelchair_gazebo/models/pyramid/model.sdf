@@ -1,0 +1,52 @@
+<?xml version='1.0'?>
+<sdf version="1.5">
+  <model name="pyramid">
+    <pose>0 0 0 0 0 0</pose>
+    <static>true</static>
+    <link name="pyramid_link">
+      <inertial>
+          <inertia>
+            <ixx>0.001</ixx>
+            <ixy>0.000</ixy>
+            <ixz>0.000</ixz>
+            <iyy>0.001</iyy>
+            <iyz>0.000</iyz>
+            <izz>0.001</izz>
+          </inertia>
+          <mass>0.1</mass>
+      </inertial>
+
+      <visual name="pyramid_visual">
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh>
+            <uri>model://pyramid/meshes/Pyramid.stl</uri>
+            <scale>0.005 0.005 0.005</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+            <name>Gazebo/Wood</name>
+          </script>
+          <ambient>1 1 1 1</ambient>
+        </material>
+      </visual>
+
+      <collision name="pyramid_collision">
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh>
+            <uri>model://pyramid/meshes/Pyramid.stl</uri>
+            <scale>0.005 0.005 0.005</scale>
+          </mesh>
+        </geometry>
+      </collision>
+    </link>
+    <static>1</static>   
+  </model>
+</sdf>

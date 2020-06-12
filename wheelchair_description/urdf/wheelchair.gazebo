@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<robot>
+
+  <gazebo reference="base_link">
+    <turnGravityOff>false</turnGravityOff>
+  </gazebo>
+
+  <gazebo reference="SwingL">
+    <turnGravityOff>false</turnGravityOff>
+    <material>Gazebo/Green</material>
+  </gazebo>
+
+  <gazebo reference="Caster">
+    <material>Gazebo/Black</material>
+    <turnGravityOff>false</turnGravityOff>
+  </gazebo>
+
+  <gazebo reference="WheelF">
+    <turnGravityOff>false</turnGravityOff>
+  </gazebo>
+
+  <gazebo reference="SwingR">
+    <turnGravityOff>false</turnGravityOff>
+    <material>Gazebo/Red</material>
+  </gazebo>
+
+  <gazebo reference="WheelR">
+    <turnGravityOff>false</turnGravityOff>
+  </gazebo>
+
+  <gazebo reference="WheelL">
+    <turnGravityOff>false</turnGravityOff>
+  </gazebo>
+
+  <gazebo reference ="Caster_cont">
+    <mu1 value="100.0"/>
+    <mu2 value="100.0"/>
+    <kp value="10000000.0"/>
+    <kd value= "1.0"/>
+  </gazebo>
+
+  <gazebo reference ="WheelF_cont">
+    <mu1 value="100.0"/>
+    <mu2 value="100.0"/>
+    <kp value="10000000.0"/>
+    <kd value= "1.0"/>
+  </gazebo>
+
+  <gazebo reference ="SwingR_rev">
+    <mu1 value="100.0"/>
+    <mu2 value="100.0"/>
+    <kp value="10000000.0"/>
+    <kd value= "1.0"/>
+  </gazebo>
+
+  <gazebo reference ="WheelR_cont">
+    <mu1 value="100.0"/>
+    <mu2 value="100.0"/>
+    <kp value="10000000.0"/>
+    <kd value= "1.0"/>
+  </gazebo>
+
+  <gazebo reference ="SwingL_rev">
+    <mu1 value="100.0"/>
+    <mu2 value="100.0"/>
+    <kp value="10000000.0"/>
+    <kd value= "1.0"/>
+  </gazebo>
+
+  <gazebo reference ="WheelL_cont">
+    <mu1 value="100.0"/>
+    <mu2 value="100.0"/>
+    <kp value="10000000.0"/>
+    <kd value= "1.0"/>
+  </gazebo>
+
+   <gazebo>
+    <plugin name="gazebo_ros_control" filename= "libgazebo_ros_control.so">
+     <robotNamespace>/</robotNamespace>
+    </plugin>
+  </gazebo>
+
+  <gazebo>
+    <plugin name="joint_state_publisher"
+    filename="libgazebo_ros_joint_state_publisher.so">
+    <jointName>Caster_cont, WheelF_cont</jointName>
+    </plugin>
+  </gazebo>
+
+  <gazebo reference="base_link">
+    <gravity>true</gravity>
+    <sensor name="imu_sensor" type="imu">
+      <always_on>true</always_on>
+      <update_rate>100</update_rate>
+      <visualize>true</visualize>
+      <topic>__default_topic__</topic>
+      <plugin filename="libgazebo_ros_imu_sensor.so" name="imu_plugin">
+        <topicName>imu</topicName>
+        <bodyName>imu_link</bodyName>
+        <updateRateHZ>10.0</updateRateHZ>
+        <gaussianNoise>0.0</gaussianNoise>
+        <xyzOffset>0 0 0</xyzOffset>
+        <rpyOffset>0 0 0</rpyOffset>
+        <frameName>imu_link</frameName>
+        <initialOrientationAsReference>false</initialOrientationAsReference>
+      </plugin>
+      <pose>0 0 0 0 0 0</pose>
+    </sensor>
+  </gazebo>
+  
+</robot>

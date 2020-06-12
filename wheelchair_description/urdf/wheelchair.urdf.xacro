@@ -5,17 +5,11 @@
 <robot name="wheelchair" xmlns:xacro="http://ros.org/wiki/xacro">
 
   <!-- Import all Gazebo-customization elements, including Gazebo colors -->
-  <!-- <xacro:include filename="$(find wheelchair_description)/urdf/wheelchair.gazebo" /> -->
+  <xacro:include filename="$(find wheelchair_description)/urdf/wheelchair.gazebo" />
   
   <!--extra dummy link -->
 
-<!--   <link name="base_footprint"/>
-
-  <joint name="base_joint" type="fixed">
-    <parent link="base_footprint"/>
-    <child link="base_link"/>
-    <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
-  </joint> -->
+  <link name="base_footprint"/>
 
   <link name="base_link">
     <inertial>
@@ -59,10 +53,6 @@
     </collision>
   </link>
 
-  <gazebo reference="base_link">
-    <turnGravityOff>false</turnGravityOff>
-  </gazebo>
-
   <link name="Caster">
     <inertial>
       <origin
@@ -104,33 +94,6 @@
       </geometry>
     </collision>
   </link>
-
-  <gazebo reference="Caster">
-    <material>Gazebo/Black</material>
-    <turnGravityOff>false</turnGravityOff>
-  </gazebo>
-
-  <joint name="Caster_cont" type="continuous">
-    <origin
-      xyz="0.5078 0 0.00635"
-      rpy="0 0 0" />
-    <parent
-      link="base_link" />
-    <child
-      link="Caster" />
-    <axis
-      xyz="0 0 1" />
-    <limit
-      effort="1000"
-      velocity="20" />
-  </joint>
-
-  <gazebo reference ="Caster_cont">
-    <mu1 value="200.0"/>
-    <mu2 value="100.0"/>
-    <kp value="10000000.0"/>
-    <kd value= "1.0"/>
-</gazebo>
 
   <link name="WheelF">
     <inertial>
@@ -174,32 +137,6 @@
     </collision>
   </link>
 
-  <gazebo reference="WheelF">
-    <turnGravityOff>false</turnGravityOff>
-  </gazebo>
-
-  <joint name="WheelF_cont"  type="continuous">
-    <origin
-      xyz="-0.0518843000619276 -0.00660668610975347 -0.1478026"
-      rpy="0 0 0.126653383400985" />
-    <parent
-      link="Caster" />
-    <child
-      link="WheelF" />
-    <axis
-      xyz="0 -1 0" />
-    <limit
-      effort="1000"
-      velocity="20" />
-  </joint>
-
-  <gazebo reference ="WheelF_cont">
-    <mu1 value="200.0"/>
-    <mu2 value="100.0"/>
-    <kp value="10000000.0"/>
-    <kd value= "1.0"/>
-  </gazebo>
-
   <link name="SwingR">
     <inertial>
       <origin
@@ -241,35 +178,6 @@
       </geometry>
     </collision>
   </link>
-
-  <gazebo reference="SwingR">
-    <turnGravityOff>false</turnGravityOff>
-  </gazebo>
-
-  <joint  name="SwingR_rev" type="revolute">
-    <origin
-      xyz="-0.106 -0.2118548 -0.0238887"
-      rpy="0 0 0" />
-    <parent
-      link="base_link" />
-    <child
-      link="SwingR" />
-    <axis
-      xyz="0 1 0" />
-    <limit
-      lower="-0.8"
-      upper="0.5"
-      effort="1000"
-      velocity="2" />
-    <dynamics damping="0.7" friction="0.0"/>
-  </joint>
-
-  <gazebo reference ="SwingR_rev">
-    <mu1 value="200.0"/>
-    <mu2 value="100.0"/>
-    <kp value="10000000.0"/>
-    <kd value= "1.0"/>
-  </gazebo>
 
   <link name="WheelR">
     <inertial>
@@ -313,32 +221,6 @@
     </collision>
   </link>
 
-  <gazebo reference="WheelR">
-    <turnGravityOff>false</turnGravityOff>
-  </gazebo>
-
-  <joint name="WheelR_cont" type="continuous">
-    <origin
-      xyz="-0.232195893808092 -0.0517862 -0.0361948462997351"
-      rpy="0 0 0" />
-    <parent
-      link="SwingR" />
-    <child
-      link="WheelR" />
-    <axis
-      xyz="0 1 0" />
-    <limit
-      effort="1000"
-      velocity="16.25" />
-  </joint>
-
-  <gazebo reference ="WheelR_cont">
-    <mu1 value="200.0"/>
-    <mu2 value="100.0"/>
-    <kp value="10000000.0"/>
-    <kd value= "1.0"/>
-  </gazebo>
-
   <link name="SwingL">
     <inertial>
       <origin
@@ -380,35 +262,6 @@
       </geometry>
     </collision>
   </link>
-
-  <gazebo reference="SwingL">
-    <turnGravityOff>false</turnGravityOff>
-  </gazebo>
-
-  <joint name="SwingL_rev" type="revolute">
-    <origin
-      xyz="-0.106 0.20947 -0.023889"
-      rpy="0 0 0" />
-    <parent
-      link="base_link" />
-    <child
-      link="SwingL" />
-    <axis
-      xyz="0 1 0" />
-    <limit
-      lower="-0.8"
-      upper="0.5"
-      effort="1000"
-      velocity="2" />
-    <dynamics damping="0.7" friction="0.0"/>
-  </joint>
-
-  <gazebo reference ="SwingL_rev">
-    <mu1 value="200.0"/>
-    <mu2 value="100.0"/>
-    <kp value="10000000.0"/>
-    <kd value= "1.0"/>
-  </gazebo>
 
   <link name="WheelL">
     <inertial>
@@ -452,9 +305,92 @@
     </collision>
   </link>
 
-  <gazebo reference="WheelL">
-    <turnGravityOff>false</turnGravityOff>
-  </gazebo>
+  <joint name="base_joint" type="fixed">
+    <parent link="base_footprint"/>
+    <child link="base_link"/>
+    <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+  </joint>
+
+  <joint name="Caster_cont" type="continuous">
+    <origin
+      xyz="0.5078 0 0.00635"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="Caster" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      effort="100"
+      velocity="10" />
+  </joint>
+
+  <joint name="WheelF_cont"  type="continuous">
+    <origin
+      xyz="-0.0518843000619276 -0.00660668610975347 -0.1478026"
+      rpy="0 0 0.126653383400985" />
+    <parent
+      link="Caster" />
+    <child
+      link="WheelF" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      effort="100"
+      velocity="10" />
+  </joint>
+
+  <joint  name="SwingR_rev" type="revolute">
+    <origin
+      xyz="-0.106 -0.2118548 -0.0238887"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="SwingR" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-0.8"
+      upper="0.5"
+      effort="100"
+      velocity="2" />
+    <dynamics damping="1.0" friction="0.0"/>
+  </joint>
+
+  <joint name="WheelR_cont" type="continuous">
+    <origin
+      xyz="-0.232195893808092 -0.0517862 -0.0361948462997351"
+      rpy="0 0 0" />
+    <parent
+      link="SwingR" />
+    <child
+      link="WheelR" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      effort="100"
+      velocity="16.25" />
+  </joint>
+
+  <joint name="SwingL_rev" type="revolute">
+    <origin
+      xyz="-0.106 0.20947 -0.023889"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="SwingL" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-0.8"
+      upper="0.5"
+      effort="100"
+      velocity="2" />
+    <dynamics damping="1.0" friction="0.0"/>
+  </joint>
 
   <joint name="WheelL_cont" type="continuous">
     <origin
@@ -467,16 +403,9 @@
     <axis
       xyz="0 1 0" />
     <limit
-      effort="1000"
+      effort="100"
       velocity="16.25" />
   </joint>
-
-  <gazebo reference ="WheelL_cont">
-    <mu1 value="200.0"/>
-    <mu2 value="100.0"/>
-    <kp value="10000000.0"/>
-    <kd value= "1.0"/>
-  </gazebo>
 
   <!-- add transmission to swing arm joints -->
   <transmission name="SwingL_transmission">
@@ -523,17 +452,4 @@
     </joint>
   </transmission> 
 
-  <gazebo>
-    <plugin name="gazebo_ros_control" filename= "libgazebo_ros_control.so">
-     <robotNamespace>/</robotNamespace>
-    </plugin>
-  </gazebo>
-
-  <gazebo>
-    <plugin name="joint_state_publisher"
-    filename="libgazebo_ros_joint_state_publisher.so">
-    <jointName>Caster_cont, WheelF_cont</jointName>
-    </plugin>
-  </gazebo>
-  
 </robot>

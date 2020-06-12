@@ -15,6 +15,7 @@
   <!-- Start Gazebo with an empty world -->
   <include
     file="$(find gazebo_ros)/launch/empty_world.launch" >
+    <arg name = "world_name" value="$(find wheelchair_gazebo)/worlds/ramps.world"/>
     <arg name="use_sim_time" value="true"/>
     <arg name="verbose" value="true"/>
     <arg name="paused" value="true"/>

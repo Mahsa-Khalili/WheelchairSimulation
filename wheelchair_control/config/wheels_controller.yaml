@@ -27,12 +27,12 @@ mobile_base_controller:
   linear:
    x:
      has_velocity_limits    : true
-     max_velocity           : 1  # m/s
-     has_acceleration_limits: true
-     max_acceleration       : 3   # m/s^2
+     max_velocity           : 10  # m/s
+     # has_acceleration_limits: true
+     # max_acceleration       : 10   # m/s^2
   angular:
    z:
      has_velocity_limits    : true
-     max_velocity           : 1   # rad/s
-     has_acceleration_limits: true
-     max_acceleration       : 3   # rad/s^2
+     max_velocity           : 10   # rad/s
+     # has_acceleration_limits: true
+     # max_acceleration       : 10   # rad/s^2
