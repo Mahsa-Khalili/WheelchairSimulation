@@ -1,0 +1,455 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.5.1-0-g916b5db  Build Version: 1.5.7152.31018
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot name="wheelchair" xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <!-- Import all Gazebo-customization elements, including Gazebo colors -->
+  <xacro:include filename="$(find wheelchair_description)/urdf/wheelchair.gazebo" />
+  
+  <!--extra dummy link -->
+
+  <link name="base_footprint"/>
+
+  <link name="base_link">
+    <inertial>
+      <origin
+        xyz="-0.21708 0 0.22652"
+        rpy="0 0 0" />
+      <mass
+        value="25.655" />
+      <inertia
+        ixx="0.18789"
+        ixy="-1.0119E-10"
+        ixz="-0.012933"
+        iyy="0.18705"
+        iyz="-1.0533E-11"
+        izz="0.20376" />
+    </inertial>
+
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wheelchair_description/meshes/Frame.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wheelchair_description/meshes/Frame.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="Caster">
+    <inertial>
+      <origin
+        xyz="-0.018941 1.0663E-07 -0.06702"
+        rpy="0 0 0" />
+      <mass
+        value="0.18578" />
+      <inertia
+        ixx="0.00031044"
+        ixy="1.4222E-10"
+        ixz="-0.00010267"
+        iyy="0.00030203"
+        iyz="3.1452E-12"
+        izz="0.0001226" />
+    </inertial>
+
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wheelchair_description/meshes/Caster.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.89804 0.91765 0.92941 1" />
+      </material>
+    </visual>
+
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wheelchair_description/meshes/Caster.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="WheelF">
+    <inertial>
+      <origin
+        xyz="0 4.3041E-19 0"
+        rpy="0 0 0" />
+      <mass
+        value="2.1315" />
+      <inertia
+        ixx="0.0052886"
+        ixy="1.9028E-36"
+        ixz="6.58E-36"
+        iyy="0.010349"
+        iyz="2.7127E-21"
+        izz="0.0052886" />
+    </inertial>
+
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wheelchair_description/meshes/WheelF.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.89804 0.91765 0.92941 1" />
+      </material>
+    </visual>
+
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wheelchair_description/meshes/WheelF.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="SwingR">
+    <inertial>
+      <origin
+        xyz="-0.14831 0.059225 0.061202"
+        rpy="0 0 0" />
+      <mass
+        value="3.4241" />
+      <inertia
+        ixx="0.0053575"
+        ixy="-0.00026344"
+        ixz="0.00049596"
+        iyy="0.012384"
+        iyz="0.00013906"
+        izz="0.010981" />
+    </inertial>
+
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wheelchair_description/meshes/SwingR.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wheelchair_description/meshes/SwingR.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="WheelR">
+    <inertial>
+      <origin
+        xyz="-7.5345E-06 -0.0076777 2.854E-05"
+        rpy="0 0 0" />
+      <mass
+        value="2.1893" />
+      <inertia
+        ixx="0.07871"
+        ixy="-1.3225E-07"
+        ixz="-2.0413E-07"
+        iyy="0.15702"
+        iyz="5.0095E-07"
+        izz="0.07871" />
+    </inertial>
+
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wheelchair_description/meshes/WheelR.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wheelchair_description/meshes/WheelR.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="SwingL">
+    <inertial>
+      <origin
+        xyz="-0.14831 -0.059225 0.061202"
+        rpy="0 0 0" />
+      <mass
+        value="3.4241" />
+      <inertia
+        ixx="0.0053575"
+        ixy="0.00026344"
+        ixz="0.00049596"
+        iyy="0.012384"
+        iyz="-0.00013906"
+        izz="0.010981" />
+    </inertial>
+
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wheelchair_description/meshes/SwingL.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wheelchair_description/meshes/SwingL.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="WheelL">
+    <inertial>
+      <origin
+        xyz="-7.5345E-06 0.0076777 2.854E-05"
+        rpy="0 0 0" />
+      <mass
+        value="2.1893" />
+      <inertia
+        ixx="0.0787096784928126"
+        ixy="1.322522646306E-07"
+        ixz="-2.04129250878084E-07"
+        iyy="0.157020504767313"
+        iyz="-5.00954679955713E-07"
+        izz="0.0787103978396803" />
+    </inertial>
+
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wheelchair_description/meshes/WheelL.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wheelchair_description/meshes/WheelL.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="base_joint" type="fixed">
+    <parent link="base_footprint"/>
+    <child link="base_link"/>
+    <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+  </joint>
+
+  <joint name="Caster_cont" type="continuous">
+    <origin
+      xyz="0.5078 0 0.00635"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="Caster" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      effort="0"
+      velocity="10" />
+  </joint>
+
+  <joint name="WheelF_cont"  type="continuous">
+    <origin
+      xyz="-0.052303 0 -0.1478"
+      rpy="0 0 0" />
+    <parent
+      link="Caster" />
+    <child
+      link="WheelF" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      effort="0"
+      velocity="10" />
+  </joint>
+
+  <joint  name="SwingR_rev" type="revolute">
+    <origin
+      xyz="-0.106 -0.21185 -0.023889"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="SwingR" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-0.52"
+      upper="0.155"
+      effort="100"
+      velocity="2" />
+    <dynamics damping="1.0" friction="0.0"/>
+  </joint>
+
+  <joint name="WheelR_cont" type="continuous">
+    <origin
+      xyz="-0.21785 -0.051786 0.088136"
+      rpy="0 0 0" />
+    <parent
+      link="SwingR" />
+    <child
+      link="WheelR" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      effort="43"
+      velocity="16.25" />
+  </joint>
+
+  <joint name="SwingL_rev" type="revolute">
+    <origin
+      xyz="-0.106 0.21185 -0.023889"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="SwingL" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-0.52"
+      upper="0.155"
+      effort="100"
+      velocity="2" />
+    <dynamics damping="1.0" friction="0.0"/>
+  </joint>
+
+  <joint name="WheelL_cont" type="continuous">
+    <origin
+      xyz="-0.21785 0.051786 0.088136"
+      rpy="0 0 0" />
+    <parent
+      link="SwingL" />
+    <child
+      link="WheelL" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      effort="43"
+      velocity="16.25" />
+  </joint>
+
+  <!-- add transmission to swing arm joints -->
+  <transmission name="SwingL_transmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <actuator name="SwingL_motor">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+    <joint name="SwingL_rev">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+  </transmission>  
+
+  <transmission name="SwingR_transmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <actuator name="SwingR_motor">
+      <hardwareInterface>PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+    <joint name="SwingR_rev">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+  </transmission> 
+  <!-- add transmission to rear wheels -->
+  <transmission name="WheelL_transmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <actuator name="WheelL_motor">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+    <joint name="WheelL_cont">
+      <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+    </joint>
+  </transmission>  
+
+  <transmission name="WheelR_transmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <actuator name="WheelR_motor">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+    <joint name="WheelR_cont">
+      <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+    </joint>
+  </transmission> 
+
+</robot>
