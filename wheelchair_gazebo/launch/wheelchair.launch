@@ -22,8 +22,8 @@
     <arg name="gui" value="true"/>
    </include>
 
-  <node
-    name="rviz" pkg="rviz" type="rviz" args="-d $(find wheelchair_gazebo)/launch/config.rviz" />
+  <!-- <node
+    name="rviz" pkg="rviz" type="rviz" args="-d $(find wheelchair_gazebo)/launch/config.rviz" /> -->
 
   <!-- ros_control launch file -->
   <include file="$(find wheelchair_control)/launch/wheelchair_control.launch"/>
