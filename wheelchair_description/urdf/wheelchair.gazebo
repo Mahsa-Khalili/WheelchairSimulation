@@ -108,5 +108,31 @@
       <pose>0 0 0 0 0 0</pose>
     </sensor>
   </gazebo>
+
+  <gazebo reference="WheelL_cont">
+    <provideFeedback>true</provideFeedback>
+  </gazebo>
+
+	<!-- The ft_sensor plugin -->  
+	<gazebo>
+	    <plugin name="ft_sensor" filename="libgazebo_ros_ft_sensor.so">
+	        <updateRate>100</updateRate>
+	        <topicName>ft_sensor_topic</topicName>
+	        <jointName>WheelL_cont</jointName>
+	    </plugin>
+	</gazebo>
+
+  <gazebo reference="WheelR_cont">
+    <provideFeedback>true</provideFeedback>
+  </gazebo>
+
+	<!-- The ft_sensor plugin -->  
+	<gazebo>
+	    <plugin name="ft_sensor" filename="libgazebo_ros_ft_sensor.so">
+	        <updateRate>100</updateRate>
+	        <topicName>ft_sensor_topic</topicName>
+	        <jointName>WheelR_cont</jointName>
+	    </plugin>
+	</gazebo>
   
 </robot>
