@@ -3,8 +3,16 @@ This repository contains three ROS packages:
 ## 1. **wheelchair_gazebo**: 
 ### Launch files:
 - **wheelchair.launch**: The main launch file 
-  - loading urdf file
+  - loading urdf intro ROS param server
+  - defining wheelchair's default pose
+  - spawing the urdf robot
+  - starting gazebo 
+  - starting rviz 
   - loading wheelchair_control.launch
+  - converting joint states to TF for rviz
+  - rqt_robot_steering: steering the robot using rqt_robot_steering
+  - rqt_gui: sending joint position
+  
 #### **models**: This folder contains added objects to the gazebo sim (e.g., ramp)
 #### **scripts**: This folder contains python scripts (e.g., script to read left/right input torque from a csv file and apply to the left/right wheels.
 #### **worlds**: This folder contains custom world files
