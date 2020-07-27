@@ -1,1 +1,4 @@
-This is the main CARIS wheelchair repository
+This repository contains three ROS packages: 
+1. wheelchair_gazebo
+2. wheelchair_description
+3. wheelchair_control
