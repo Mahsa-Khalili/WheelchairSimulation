@@ -6,8 +6,8 @@ This repository contains three ROS packages:
 - **scripts**: This folder contains python scripts (e.g., script to read left/right input torque from a csv file and apply to the left/right wheels.
 - **worlds**: This folder contains custom world files
 ## 2. **wheelchair_description**
-#### - meshes
-#### - urdf
+- **meshes**: This folder contains .stl filrs of the main wheelchair components
+- **urdf**: This folder contains the main urdf.xacro file of the wheelchair
 ## 3. **wheelchair_control**
-#### - config
-#### - launch
+- **config**: This folder contains the .yaml controller files
+- **launch**: This folder contains the launch file to load controllers
