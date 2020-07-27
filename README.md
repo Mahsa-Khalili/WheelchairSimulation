@@ -1,8 +1,7 @@
 # CARIS Wheelchair GAZEBO-ROS Repository
 This repository contains three ROS packages: 
 ## 1. **wheelchair_gazebo**: 
-### - launch: 
-      This folder contains the main launch file and rviz configuration file.
+### - launch: This folder contains the main launch file and rviz configuration file.
 ### - models: 
       This folder contains added objects to the gazebo sim (e.g., ramp)
 ### - scripts: 
