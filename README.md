@@ -24,7 +24,7 @@ This repository contains three ROS packages:
   - **set_wheel_torque.py**: when running this script, left/right input torques are read from a csv file and applied to the wheel joints using `apply_joint_effort` service call
 ### world files: 
 - This folder contains custom world files
-  - **ramps.world** loading a world with ramp models. 
+  - **ramps.world** loading a gazebo world with ramp models. 
   
 ## 2. **wheelchair_description**
 ### meshes: 
