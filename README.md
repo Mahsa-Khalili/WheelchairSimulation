@@ -16,8 +16,12 @@ This repository contains three ROS packages:
   
 ### gazebo models: 
 - This folder contains mesh/config/sdf files of gazebo objects (e.g., ramp)
-#### **Python scripts**: This folder contains python scripts (e.g., script to read left/right input torque from a csv file and apply to the left/right wheels.
-#### **world files**: This folder contains custom world files
+#### Python scripts: 
+- This folder contains python scripts 
+  - **set_wheel_torque.py**: when running this script, left/right input torques are read from a csv file and applied to the wheel joints using `apply_joint_effort` service call
+#### world files: 
+- This folder contains custom world files
+  - **ramps.world** loading a world with ramp models. 
 ## 2. **wheelchair_description**
 - **meshes**: This folder contains .stl filrs of the main wheelchair components
 - **urdf**: This folder contains the main urdf.xacro file of the wheelchair
