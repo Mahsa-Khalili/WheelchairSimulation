@@ -1,8 +1,9 @@
 # CARIS Wheelchair GAZEBO-ROS Repository
 This repository contains three ROS packages: 
-1. wheelchair_gazebo (containing the main launch file running gazebo & rviz)
-2. wheelchair_description (containing robot models); 
-3. wheelchair_controller (containing control config & launch files)
+1. wheelchair_gazebo: containing the main launch file running gazebo & rviz
+2. wheelchair_description: containing robot models
+3. wheelchair_controller: containing controller config & launch files
+
 ## 1. **wheelchair_gazebo**: 
 ### Launch files:
 - **wheelchair.launch**: The main launch file loading gazebo-rviz models
@@ -16,7 +17,6 @@ This repository contains three ROS packages:
   - rqt_robot_steering: steering the robot using rqt_robot_steering `<node name = "rqt_robot_steering" ... >`
   - rqt_gui: sending joint position `<node name = "rqt_gui" ... >`
  - **config.rviz**: Default rviz configuration 
-  
 ### gazebo models: 
 - This folder contains mesh/config/sdf files of gazebo objects (e.g., ramp)
 ### Python scripts: 
@@ -25,9 +25,17 @@ This repository contains three ROS packages:
 ### world files: 
 - This folder contains custom world files
   - **ramps.world** loading a world with ramp models. 
+  
 ## 2. **wheelchair_description**
-- **meshes**: This folder contains .stl filrs of the main wheelchair components
-- **urdf**: This folder contains the main urdf.xacro file of the wheelchair
+### meshes: 
+ - This folder contains `.stl` files of the main wheelchair components
+### urdf: 
+ - **wheelchair.gazebo**: this file contains all gazebo related code (e.g., plugins for sensors, controllers)
+ - **wheelchair_1.0.urdf.xacro**: the main urdf.xacro file of the wheelchair model 
+ - **wheelchair_2.0.urdf.xacro**: the main urdf.xacro file of the wheelchair model 
+   - importing gazebo elements `<xacro:include filename= ..../wheelchair.gazebo/>`
+   - defining links and joints
+   - adding transmission to actuated joints `<transmission ...>`
 ## 3. **wheelchair_control**
 - **config**: This folder contains the .yaml controller files
 - **launch**: This folder contains the launch file to load controllers
