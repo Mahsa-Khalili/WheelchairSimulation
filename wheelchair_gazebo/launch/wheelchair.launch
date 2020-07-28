@@ -1,6 +1,6 @@
 <launch>
 
-  <!-- Load the URDF into the ROS Parameter Server -->
+  <!-- Add robot_description into the ROS Parameter Server -->
   <param name="robot_description" command="$(find xacro)/xacro '$(find wheelchair_description)/urdf/wheelchair_2.0.urdf.xacro' " />
 
   <!-- Define wheelchair's default pose -->
@@ -8,7 +8,7 @@
   <arg name="y_pos" default="0"/>
   <arg name="z_pos" default="0.254"/>
 
-    <!-- Run a python script to the send a service call to gazebo_ros to spawn a URDF robot -->
+    <!-- Run a python script to  send a service call to gazebo_ros to spawn a URDF robot -->
   <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"  args="-urdf -model wheelchair -param robot_description -x $(arg x_pos) -y $(arg y_pos) -z $(arg z_pos)"/>
 
   
@@ -32,12 +32,15 @@
   <node name="robot_state_publisher" pkg="robot_state_publisher"  type="robot_state_publisher" respawn = "false" output="screen">
   </node>
 
-  <node name="rqt_robot_steering" pkg="rqt_robot_steering" type="rqt_robot_steering">
+<!--   <node name="rqt_robot_steering" pkg="rqt_robot_steering" type="rqt_robot_steering">
     <param name="default_topic" value="/mobile_base_controller/cmd_vel"/> 
   </node>
 
   <node name="rqt_gui" pkg="rqt_gui" type="rqt_gui" output="screen"> 
     <param name="default_topic" value="/SwingL_controller/command"/> 
-  </node>
+  </node> -->
+
+  <!-- <node name="Twist_publisher" pkg="wheelchair_gazebo" type="set_wheelchair_Twist.py">
+  </node> -->
 
 </launch>

@@ -36,14 +36,14 @@ if __name__ == '__main__':
 			row_fl_left = float(data[5])
 			row_fl_right = float(data[6])
 
-			effort_left = 0.01*row_fl_left
-			effort_right = 0.01*row_fl_right
+			effort_left = 0.1*row_fl_left
+			effort_right = 0.1*row_fl_right
 
 			try:
 				resp1 = (apply_joint_effort('WheelL_cont', effort_left, start_time, duration))
 				resp2 = (apply_joint_effort('WheelR_cont', effort_right, start_time, duration))
 
-				time.sleep(1/300)
+				time.sleep(1/240)
 
 			except rospy.ServiceException, e:
 				print "Sercice did not process"
