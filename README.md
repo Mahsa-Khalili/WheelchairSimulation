@@ -1,5 +1,8 @@
 # CARIS Wheelchair GAZEBO-ROS Repository
 This repository contains three ROS packages: 
+1. wheelchair_gazebo (containing the main launch file running gazebo & rviz)
+2. wheelchair_description (containing robot models); 
+3. wheelchair_controller (containing control config & launch files)
 ## 1. **wheelchair_gazebo**: 
 ### Launch files:
 - **wheelchair.launch**: The main launch file loading gazebo-rviz models
@@ -16,10 +19,10 @@ This repository contains three ROS packages:
   
 ### gazebo models: 
 - This folder contains mesh/config/sdf files of gazebo objects (e.g., ramp)
-#### Python scripts: 
+### Python scripts: 
 - This folder contains python scripts 
   - **set_wheel_torque.py**: when running this script, left/right input torques are read from a csv file and applied to the wheel joints using `apply_joint_effort` service call
-#### world files: 
+### world files: 
 - This folder contains custom world files
   - **ramps.world** loading a world with ramp models. 
 ## 2. **wheelchair_description**
