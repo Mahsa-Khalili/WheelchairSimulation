@@ -324,6 +324,7 @@
     <limit
       effort="0"
       velocity="10" />
+    <dynamics damping="1.0" friction="0.2"/>
   </joint>
 
   <joint name="WheelF_cont"  type="continuous">

@@ -8,6 +8,9 @@
   <arg name="y_pos" default="0"/>
   <arg name="z_pos" default="0.254"/>
 
+  <!-- Determine whether to record model states or not -->
+  <arg name="record_rosbag_states" default="true"/>
+
     <!-- Run a python script to  send a service call to gazebo_ros to spawn a URDF robot -->
   <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"  args="-urdf -model wheelchair -param robot_description -x $(arg x_pos) -y $(arg y_pos) -z $(arg z_pos)"/>
 
@@ -40,7 +43,13 @@
     <param name="default_topic" value="/SwingL_controller/command"/> 
   </node> -->
 
+  <!-- node to read Twist commands from cvs and publish to gazebo model -->
   <node name="twist_publisher" pkg="wheelchair_gazebo" type="set_wheelchair_Twist.py">
+  </node>
+
+  <!-- record robot state in a rosbag file -->
+  <node name="rosbag_record_modelstate" pkg="rosbag" type="record"
+        args = "-o wheelchair_states /gazebo/model_states" if="$(arg record_rosbag_states)">
   </node>
 
 </launch>
