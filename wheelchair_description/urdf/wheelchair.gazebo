@@ -41,10 +41,12 @@
   </gazebo>
 
   <gazebo reference ="WheelF_cont">
-    <mu1 value="100.0"/>
+    <mu1 value="100000.0"/>
     <mu2 value="100.0"/>
     <kp value="10000000.0"/>
     <kd value= "1.0"/>
+    <minDepth>0.005</minDepth>
+    <maxContacts>1</maxContacts>
   </gazebo>
 
   <gazebo reference ="SwingR_rev">
@@ -55,10 +57,13 @@
   </gazebo>
 
   <gazebo reference ="WheelR_cont">
-    <mu1 value="100.0"/>
+    <mu1 value="100000.0"/>
+    <fdir1>1 0 0 </fdir1>
     <mu2 value="100.0"/>
     <kp value="10000000.0"/>
     <kd value= "1.0"/>
+    <minDepth>0.005</minDepth>
+    <maxContacts>1</maxContacts>
   </gazebo>
 
   <gazebo reference ="SwingL_rev">
@@ -69,10 +74,13 @@
   </gazebo>
 
   <gazebo reference ="WheelL_cont">
-    <mu1 value="100.0"/>
+    <mu1 value="100000.0"/>
+    <fdir1>1 0 0 </fdir1>
     <mu2 value="100.0"/>
     <kp value="10000000.0"/>
     <kd value= "1.0"/>
+    <minDepth>0.005</minDepth>
+    <maxContacts>1</maxContacts>
   </gazebo>
 
    <gazebo>

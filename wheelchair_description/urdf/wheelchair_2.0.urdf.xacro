@@ -17,7 +17,7 @@
         xyz="-0.21708 0 0.22652"
         rpy="0 0 0" />
       <mass
-        value="65.655" />
+        value="15.655" />
       <inertia
         ixx="0.18789"
         ixy="-1.0119E-10"
@@ -339,6 +339,7 @@
     <limit
       effort="0"
       velocity="10" />
+    <dynamics damping="1.0" friction="0.2"/>
   </joint>
 
   <joint  name="SwingR_rev" type="revolute">
@@ -372,6 +373,7 @@
     <limit
       effort="43"
       velocity="16.25" />
+    <dynamics damping="1.0" friction="0.2"/>
   </joint>
 
   <joint name="SwingL_rev" type="revolute">
@@ -405,6 +407,7 @@
     <limit
       effort="43"
       velocity="16.25" />
+    <dynamics damping="1.0" friction="0.2"/>
   </joint>
 
   <!-- add transmission to swing arm joints -->

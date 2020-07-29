@@ -2,22 +2,24 @@
 # Publish all joint states -----------------------------------
 joint_state_controller:
   type: joint_state_controller/JointStateController
-  publish_rate: 50
+  publish_rate: 240
 
 
 mobile_base_controller:
   type: "diff_drive_controller/DiffDriveController"
-  publish_rate: 50
+  publish_rate: 240
 
-  left_wheel: WheelL_cont
-  right_wheel: WheelR_cont
+  left_wheel: 'WheelL_cont'
+  right_wheel: 'WheelR_cont'
 
   # Wheel separation and diameter. 
   wheel_separation : 0.52728
   wheel_radius : 0.3175
 
-  pose_covariance_diagonal: [0.001, 0.001, 0.001, 0.0010, 0.001, 0.003]
-  twist_covariance_diagonal: [0.001, 0.001, 0.001, 0.0010, 0.001, 0.003] 
+  pose_covariance_diagonal: [0.001, 0.001, 1000000.0, 1000000.0, 1000000.0, 1000.0]
+  twist_covariance_diagonal: [0.001, 0.001, 1000000.0, 1000000.0, 1000000.0, 1000.0] 
+
+  cmd_vel_timeout: 0.25
 
   publish_cmd: true
 
@@ -27,12 +29,16 @@ mobile_base_controller:
   linear:
    x:
      has_velocity_limits    : true
-     max_velocity           : 10  # m/s
-     # has_acceleration_limits: true
-     # max_acceleration       : 10   # m/s^2
+     max_velocity           : 5  # m/s
+     has_acceleration_limits: true
+     max_acceleration       : 2   # m/s^2
+     has_jerk_limits        : true
+     max_jerk               : 5.0 # m/s^3
   angular:
    z:
      has_velocity_limits    : true
-     max_velocity           : 10   # rad/s
-     # has_acceleration_limits: true
-     # max_acceleration       : 10   # rad/s^2
+     max_velocity           : 2   # rad/s
+     has_acceleration_limits: true
+     max_acceleration       : 2   # rad/s^2
+     has_jerk_limits        : true
+     max_jerk               : 2.5 #rad/s^3

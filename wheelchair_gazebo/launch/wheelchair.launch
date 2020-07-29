@@ -15,7 +15,7 @@
   <!-- Start Gazebo with an empty world -->
   <include
     file="$(find gazebo_ros)/launch/empty_world.launch" >
-    <arg name = "world_name" value="$(find wheelchair_gazebo)/worlds/ramps.world"/>
+    <!-- <arg name = "world_name" value="$(find wheelchair_gazebo)/worlds/ramps.world"/> -->
     <arg name="use_sim_time" value="true"/>
     <arg name="verbose" value="true"/>
     <arg name="paused" value="true"/>
@@ -32,15 +32,15 @@
   <node name="robot_state_publisher" pkg="robot_state_publisher"  type="robot_state_publisher" respawn = "false" output="screen">
   </node>
 
-<!--   <node name="rqt_robot_steering" pkg="rqt_robot_steering" type="rqt_robot_steering">
+  <node name="rqt_robot_steering" pkg="rqt_robot_steering" type="rqt_robot_steering">
     <param name="default_topic" value="/mobile_base_controller/cmd_vel"/> 
   </node>
 
-  <node name="rqt_gui" pkg="rqt_gui" type="rqt_gui" output="screen"> 
+<!--   <node name="rqt_gui" pkg="rqt_gui" type="rqt_gui" output="screen"> 
     <param name="default_topic" value="/SwingL_controller/command"/> 
   </node> -->
 
-  <!-- <node name="Twist_publisher" pkg="wheelchair_gazebo" type="set_wheelchair_Twist.py">
-  </node> -->
+  <node name="twist_publisher" pkg="wheelchair_gazebo" type="set_wheelchair_Twist.py">
+  </node>
 
 </launch>
