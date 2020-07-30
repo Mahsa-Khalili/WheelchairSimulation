@@ -1,50 +1,54 @@
 #!/usr/bin/env python
 
-import rospy
-import time
-import os
-
-from gazebo_msgs.srv import *
 import rospkg
+import os
+import rospy
+from std_msgs.msg import Float64
 import csv
+import time
 
 rospack = rospkg.RosPack()
 pkg_path = rospack.get_path('wheelchair_gazebo')
-
 filename = os.path.join(pkg_path, 'scripts/StraightF_T1_WS64_Mahsa.csv')
 
-if __name__ == '__main__':
+def EffortControl():
+	# initialize node
+	rospy.init_node('effort_publisher')	
 
-	rospy.init_node('set_wheel_torque')
+	# advertise effort publisher
+	effort_left_pub = rospy.Publisher('/WheelL_effort_controller/command', Float64, queue_size = 1)
+	effort_right_pub = rospy.Publisher('/WheelR_effort_controller/command', Float64, queue_size = 1)
 
-	rospy.wait_for_service('/gazebo/apply_joint_effort')
-
-	time.sleep(5)
-
-	apply_joint_effort = rospy.ServiceProxy('/gazebo/apply_joint_effort', ApplyJointEffort)
-
-	start_time = rospy.Duration.from_sec(0)
-	duration = rospy.Duration.from_sec(20)
+	# setting publishing rate in Hz
+	rate = rospy.Rate(240)
 
 	with open(filename, 'rb') as csvfile:
 		csvfile.readline()
-		test_read = csv.reader(csvfile, delimiter=',')
-		i = 0
-		for data in test_read:
-			i+=1
-			print(data[5], data[6])
-			row_fl_left = float(data[5])
-			row_fl_right = float(data[6])
+		data = csv.reader(csvfile, delimiter=',')
+		# rowcount = sum(1 for row in data)
+		# print(rowcount)
+		
+		for row in data:
+			print(row[5], row[6])
+			left_torque = float(row[5])
+			right_torque = float(row[6])
 
-			effort_left = 0.1*row_fl_left
-			effort_right = 0.1*row_fl_right
+			# publish twist command to wheelchair
+			effort_left_pub.publish(left_torque)
+			effort_right_pub.publish(right_torque)
 
-			try:
-				resp1 = (apply_joint_effort('WheelL_cont', effort_left, start_time, duration))
-				resp2 = (apply_joint_effort('WheelR_cont', effort_right, start_time, duration))
+			rate.sleep()
 
-				time.sleep(1/240)
+		left_torque = 0.0
+		right_torque = 0.0
 
-			except rospy.ServiceException, e:
-				print "Sercice did not process"
-		print(i)
+		while not rospy.is_shutdosn():
+			effort_left_pub.publish(left_torque)
+			effort_right_pub.publish(right_torque)
+			rate.sleep()
+
+if __name__ == '__main__':
+	try:
+		EffortControl()
+	except:
+		"There was an error publihing twist messages"

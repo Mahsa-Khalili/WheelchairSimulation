@@ -6,6 +6,9 @@
   <!-- Load wheel controller configurations from YAML file to parameter server -->
   <rosparam file="$(find wheelchair_control)/config/wheels_diffdrive_controller.yaml" command="load"/>
 
+  <!-- Load wheel efort controller configurations from YAML file to parameter server -->
+  <rosparam file="$(find wheelchair_control)/config/wheels_effort_controller.yaml" command="load"/>
+
 
   <!-- Load the controllers -->
   <node 
@@ -17,6 +20,7 @@
     args="/SwingL_controller
           /SwingR_controller
           /joint_state_controller
-          /mobile_base_controller"/>
-
+          /mobile_base_controller
+          /WheelL_effort_controller
+          /WheelR_effort_controller"/>
 </launch>

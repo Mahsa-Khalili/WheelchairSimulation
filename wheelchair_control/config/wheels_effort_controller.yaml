@@ -1,0 +1,10 @@
+# Effort Controllers ---------------------------------------
+WheelL_effort_controller:
+  type: effort_controllers/JointEffortController
+  joint: WheelL_cont
+  pid: {p: 100.0, i: 0.01, d: 10.0}
+
+WheelR_effort_controller:
+  type: effort_controllers/JointEffortController
+  joint: WheelR_cont
+  pid: {p: 100.0, i: 0.01, d: 10.0}

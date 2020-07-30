@@ -340,7 +340,7 @@
     <limit
       effort="0"
       velocity="10" />
-    <dynamics damping="1.0" friction="0.2"/>
+    <dynamics damping="1.0" friction="0.1"/>
   </joint>
 
   <joint  name="SwingR_rev" type="revolute">
@@ -374,7 +374,7 @@
     <limit
       effort="43"
       velocity="16.25" />
-    <dynamics damping="1.0" friction="0.2"/>
+    <dynamics damping="1.0" friction="0.0"/>
   </joint>
 
   <joint name="SwingL_rev" type="revolute">
@@ -408,7 +408,7 @@
     <limit
       effort="43"
       velocity="16.25" />
-    <dynamics damping="1.0" friction="0.2"/>
+    <dynamics damping="1.0" friction="0.0"/>
   </joint>
 
   <!-- add transmission to swing arm joints -->
@@ -441,7 +441,8 @@
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
     <joint name="WheelL_cont">
-      <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+      <!--hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface-->
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
   </transmission>  
 
@@ -452,7 +453,8 @@
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
     <joint name="WheelR_cont">
-      <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+      <!--hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface-->
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
   </transmission> 
 
