@@ -41,6 +41,8 @@ This repository contains three ROS packages:
 - This folder contains the .yaml controller files
  - **state_controller.yaml** : publishing all joint states
  - **swingarms_controller.yaml**: swing arms' position controller
- - **wheels_controller.yaml**: differential drive controller
+ - **wheels_diffdrive_controller.yaml**: differential drive controller
+ - **wheels_effort_controller.yaml**: torque controller for the rear wheels
+ - **wheels_velocity_controller.yaml**: angular velocity controller for the rear wheels
 ### launch files: 
 - **wheelchair_control.launch**: the main launch file to load all controllers
