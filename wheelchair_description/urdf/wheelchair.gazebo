@@ -117,6 +117,7 @@
     </sensor>
   </gazebo>
 
+  <!-- recording odometery data from the wheelchair frame -->
   <gazebo>
     <plugin name="ground_truth" filename="libgazebo_ros_p3d.so">
       <alwaysOn>true</alwaysOn>
@@ -134,7 +135,7 @@
     <provideFeedback>true</provideFeedback>
   </gazebo>
 
-	<!-- The ft_sensor plugin -->  
+	<!-- The ft_sensor plugin for the left wheel's joint -->  
 	<gazebo>
 	    <plugin name="ft_sensor" filename="libgazebo_ros_ft_sensor.so">
 	        <updateRate>240</updateRate>
@@ -144,6 +145,7 @@
 	    </plugin>
 	</gazebo>
 
+  <!-- The imu plugin for the left wheel --> 
   <gazebo reference="WheelL">
     <gravity>true</gravity>
     <sensor name="WheelL_imu" type="imu">
@@ -169,7 +171,7 @@
     <provideFeedback>true</provideFeedback>
   </gazebo>
 
-	<!-- The ft_sensor plugin -->  
+	<!-- The ft_sensor plugin for the right wheel's joint -->   
 	<gazebo>
 	    <plugin name="ft_sensor" filename="libgazebo_ros_ft_sensor.so">
 	        <updateRate>240</updateRate>
@@ -179,6 +181,7 @@
 	    </plugin>
 	</gazebo>
 
+  <!-- The imu plugin for the right wheel --> 
   <gazebo reference="WheelR">
     <gravity>true</gravity>
     <sensor name="WheelR_imu" type="imu">
