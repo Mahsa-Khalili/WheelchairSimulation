@@ -124,9 +124,10 @@
 	<!-- The ft_sensor plugin -->  
 	<gazebo>
 	    <plugin name="ft_sensor" filename="libgazebo_ros_ft_sensor.so">
-	        <updateRate>100</updateRate>
-	        <topicName>ft_sensor_topic</topicName>
+	        <updateRate>240</updateRate>
+	        <topicName>ft_sensor_topic/left</topicName>
 	        <jointName>WheelL_cont</jointName>
+          <gaussianNoise>0.0001</gaussianNoise>
 	    </plugin>
 	</gazebo>
 
@@ -137,9 +138,10 @@
 	<!-- The ft_sensor plugin -->  
 	<gazebo>
 	    <plugin name="ft_sensor" filename="libgazebo_ros_ft_sensor.so">
-	        <updateRate>100</updateRate>
-	        <topicName>ft_sensor_topic</topicName>
+	        <updateRate>240</updateRate>
+	        <topicName>ft_sensor_topic/right</topicName>
 	        <jointName>WheelR_cont</jointName>
+          <gaussianNoise>0.0001</gaussianNoise>
 	    </plugin>
 	</gazebo>
   

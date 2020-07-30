@@ -441,8 +441,8 @@
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
     <joint name="WheelL_cont">
-      <!--hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface-->
-      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+      <!-- <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface> -->
     </joint>
   </transmission>  
 
@@ -453,8 +453,8 @@
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
     <joint name="WheelR_cont">
-      <!--hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface-->
-      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+      <!-- <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface> -->
     </joint>
   </transmission> 
 

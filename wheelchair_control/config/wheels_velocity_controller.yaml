@@ -1,0 +1,10 @@
+# velocity Controllers ---------------------------------------
+WheelL_velocity_controller:
+  type: velocity_controllers/JointVelocityController
+  joint: WheelL_cont
+  pid: {p: 100.0, i: 0.01, d: 10.0}
+
+WheelR_velocity_controller:
+  type: velocity_controllers/JointVelocityController
+  joint: WheelR_cont
+  pid: {p: 100.0, i: 0.01, d: 10.0}
