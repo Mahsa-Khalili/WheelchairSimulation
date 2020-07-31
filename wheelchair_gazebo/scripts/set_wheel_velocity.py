@@ -42,7 +42,7 @@ def VelocityControl():
 		left_vel = 0.0
 		right_vel = 0.0
 
-		while not rospy.is_shutdosn():
+		while not rospy.is_shutdown():
 			velocity_left_pub.publish(left_vel)
 			velocity_right_pub.publish(right_vel)
 			rate.sleep()
