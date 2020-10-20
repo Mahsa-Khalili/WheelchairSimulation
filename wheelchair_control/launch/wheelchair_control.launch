@@ -23,6 +23,6 @@
     /WheelR_velocity_controller"/> --> 
 
   <node name="controller_spawner" pkg="controller_manager" type="spawner" 
-        args="/WheelL_effort_controller /WheelR_effort_controller  /joint_state_controller"/>
+        args="/mobile_base_controller  /joint_state_controller"/>
 
 </launch> 

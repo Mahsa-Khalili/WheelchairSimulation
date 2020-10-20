@@ -10,7 +10,7 @@ import time
 rospack = rospkg.RosPack()
 pkg_path = rospack.get_path('wheelchair_gazebo')
 
-filename = os.path.join(pkg_path, 'scripts/StraightF_T1_WS64_Mahsa.csv')
+filename = os.path.join(pkg_path, 'scripts/Turn90FR_T1.csv')
 
 def TwistControl():
 	# initialize node
@@ -23,7 +23,7 @@ def TwistControl():
 	twist_cmd = Twist()
 
 	# setting publishing rate in Hz
-	rate = rospy.Rate(240)
+	rate = rospy.Rate(15)
 
 	with open(filename, 'rb') as csvfile:
 		csvfile.readline()
@@ -32,8 +32,9 @@ def TwistControl():
 		t_start = time.time()
 
 		for row in data:
-			lin_vel = float(row[3])
-			ang_vel = float(row[4])
+			lin_vel = float(row[-3])
+			# ang_vel = float(row[4])
+			ang_vel = float(row[-1])
 
 			# assign lin and angualr velocity compnents of the twist message
 			twist_cmd.linear.x = lin_vel
