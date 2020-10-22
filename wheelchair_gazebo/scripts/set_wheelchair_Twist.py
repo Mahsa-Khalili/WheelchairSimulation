@@ -10,7 +10,11 @@ import time
 rospack = rospkg.RosPack()
 pkg_path = rospack.get_path('wheelchair_gazebo')
 
-filename = os.path.join(pkg_path, 'scripts/Obstacles35_T1.csv')
+filename = os.path.join(pkg_path, 'scripts/Obstacles15_T1.csv')
+
+# datadriven = False
+# experiment = True
+# sysID = False
 
 def TwistControl():
 	# initialize node
@@ -30,11 +34,9 @@ def TwistControl():
 		data = csv.reader(csvfile, delimiter=',')
 
 		t_start = time.time()
-
 		for row in data:
 			lin_vel = float(row[-3])
 			ang_vel = float(row[-1])
-			# ang_vel = float(row[-1])
 
 			# assign lin and angualr velocity compnents of the twist message
 			twist_cmd.linear.x = lin_vel
