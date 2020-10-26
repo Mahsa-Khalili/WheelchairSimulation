@@ -1,12 +1,15 @@
 <launch>
 
   <!-- Add robot_description into the ROS Parameter Server -->
-  <param name="robot_description" command="$(find xacro)/xacro '$(find wheelchair_description)/urdf/wheelchair_2.0.urdf.xacro' " />
+  <!-- <param name="robot_description" command="$(find xacro)/xacro '$(find wheelchair_description)/urdf/wheelchair_2.0.urdf.xacro' " /> -->
+
+  <param name="robot_description" command="$(find xacro)/xacro '$(find wheelchair_description)/urdf/wheelchair_0.0.urdf.xacro' " />
 
   <!-- Define wheelchair's default pose -->
   <arg name="x_pos" default="0"/>
   <arg name="y_pos" default="0"/>
-  <arg name="z_pos" default="0.254"/>
+  <arg name="z_pos" default="0"/>
+  <!-- <arg name="z_pos" default="0.254"/> -->
 
   <!-- Determine whether to load rviz -->
   <arg name="load_rviz" default="false"/>
