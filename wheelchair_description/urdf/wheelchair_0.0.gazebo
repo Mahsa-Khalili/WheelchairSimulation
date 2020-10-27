@@ -4,71 +4,62 @@
 
   <gazebo reference="base_link">
     <turnGravityOff>false</turnGravityOff>
+    <material>Gazebo/Orange</material>
   </gazebo>
 
   <gazebo reference="Left-Caster-Wheel">
     <turnGravityOff>false</turnGravityOff>
-    <material>Gazebo/Green</material>
+    <material>Gazebo/Blue</material>
+  </gazebo>
+
+  <gazebo reference="Right-Caster-Wheel">
+    <turnGravityOff>false</turnGravityOff>
+    <material>Gazebo/Blue</material>
   </gazebo>
 
   <gazebo reference="Left-Caster-Yaw">
-    <material>Gazebo/Black</material>
+    <material>Gazebo/Green</material>
+    <turnGravityOff>false</turnGravityOff>
+  </gazebo>
+
+  <gazebo reference="Right-Caster-Yaw">
+  	<material>Gazebo/Green</material>
     <turnGravityOff>false</turnGravityOff>
   </gazebo>
 
   <gazebo reference="Left-Wheel">
     <turnGravityOff>false</turnGravityOff>
-  </gazebo>
-
-  <gazebo reference="Right-Caster-Wheel">
-    <turnGravityOff>false</turnGravityOff>
-    <material>Gazebo/Red</material>
-  </gazebo>
-
-  <gazebo reference="Right-Caster-Yaw">
-    <turnGravityOff>false</turnGravityOff>
+    <material>Gazebo/Gray</material>
   </gazebo>
 
   <gazebo reference="Right-Wheel">
     <turnGravityOff>false</turnGravityOff>
+    <material>Gazebo/Gray</material>
   </gazebo>
 
-  <gazebo reference ="Left-Caster-Yaw-Left-Caster-Wheel">
+
+  <gazebo reference ="Right-Wheel">
     <mu1 value="100.0"/>
     <mu2 value="100.0"/>
     <kp value="10000000.0"/>
     <kd value= "1.0"/>
   </gazebo>
 
-  <gazebo reference ="Wheelchair-base-Left-Caster-Yaw">
+  <gazebo reference ="Left-Wheel">
     <mu1 value="100.0"/>
     <mu2 value="100.0"/>
     <kp value="10000000.0"/>
     <kd value= "1.0"/>
   </gazebo>
 
-  <gazebo reference ="WheelL_cont">
+  <gazebo reference ="Right-Caster-Wheel">
     <mu1 value="100.0"/>
     <mu2 value="100.0"/>
     <kp value="10000000.0"/>
     <kd value= "1.0"/>
   </gazebo>
 
-  <gazebo reference ="Right-Caster-Yaw-Right-Caster-Wheel">
-    <mu1 value="100.0"/>
-    <mu2 value="100.0"/>
-    <kp value="10000000.0"/>
-    <kd value= "1.0"/>
-  </gazebo>
-
-  <gazebo reference ="Wheelchair-base-Right-Caster-Yaw">
-    <mu1 value="100.0"/>
-    <mu2 value="100.0"/>
-    <kp value="10000000.0"/>
-    <kd value= "1.0"/>
-  </gazebo>
-
-  <gazebo reference ="WheelR_cont">
+  <gazebo reference ="Left-Caster-Wheel">
     <mu1 value="100.0"/>
     <mu2 value="100.0"/>
     <kp value="10000000.0"/>

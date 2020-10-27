@@ -33,14 +33,14 @@
     <turnGravityOff>false</turnGravityOff>
   </gazebo>
 
-  <gazebo reference ="Caster_cont">
+  <gazebo reference ="Caster">
     <mu1 value="100.0"/>
     <mu2 value="100.0"/>
     <kp value="10000000.0"/>
     <kd value= "1.0"/>
   </gazebo>
 
-  <gazebo reference ="WheelF_cont">
+  <gazebo reference ="WheelR">
     <mu1 value="100000.0"/>
     <mu2 value="100.0"/>
     <kp value="10000000.0"/>
@@ -49,38 +49,11 @@
     <maxContacts>1</maxContacts>
   </gazebo>
 
-  <gazebo reference ="SwingR_rev">
+  <gazebo reference ="WheelL">
     <mu1 value="100.0"/>
     <mu2 value="100.0"/>
     <kp value="10000000.0"/>
     <kd value= "1.0"/>
-  </gazebo>
-
-  <gazebo reference ="WheelR_cont">
-    <mu1 value="100000.0"/>
-    <fdir1>1 0 0 </fdir1>
-    <mu2 value="100.0"/>
-    <kp value="10000000.0"/>
-    <kd value= "1.0"/>
-    <minDepth>0.005</minDepth>
-    <maxContacts>1</maxContacts>
-  </gazebo>
-
-  <gazebo reference ="SwingL_rev">
-    <mu1 value="100.0"/>
-    <mu2 value="100.0"/>
-    <kp value="10000000.0"/>
-    <kd value= "1.0"/>
-  </gazebo>
-
-  <gazebo reference ="WheelL_cont">
-    <mu1 value="100000.0"/>
-    <fdir1>1 0 0 </fdir1>
-    <mu2 value="100.0"/>
-    <kp value="10000000.0"/>
-    <kd value= "1.0"/>
-    <minDepth>0.005</minDepth>
-    <maxContacts>1</maxContacts>
   </gazebo>
 
    <gazebo>
