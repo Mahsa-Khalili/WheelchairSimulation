@@ -21,7 +21,7 @@
 	    <inertial>
 			<origin rpy= "0 -0 0" xyz = "0.13 0 0.5"/>
 	    	<mass value="63.4"/>
-	     	<inertia ixx="3.853724" ixy="7e-06" ixz="0.022948" iyy="3.218409" iyz="7e-06" izz="5.782313"/>
+	     	<inertia ixx="3.853724" ixy="7e-06" ixz="0.022948" iyy="3.218409" iyz="7e-06" izz="5.02"/>
  	    </inertial>
   	</link>
   
@@ -151,7 +151,7 @@
 	   <origin xyz="0.35956 0.24291 0.1517"/>
 	   <axis xyz="0 0 -1"/>
 	   <limit effort= "100" lower = "${lower}" upper = "${upper}" velocity = "10"/>
-	   <dynamics damping = "0.7" friction ="1.5"/>
+	   <dynamics damping = "1.0" friction ="1.0"/>
 	</joint>
 
 	<joint name="Wheelchair-base-Right-Caster-Yaw" type="continuous">
@@ -160,7 +160,7 @@
 	   <origin xyz="0.35956 -0.24291 0.1517"/>
 	   <axis xyz="0 0 1"/>
 	   <limit effort= "100" lower = "${lower}" upper = "${upper}" velocity = "10"/>
-	   <dynamics damping = "0.7" friction ="1.5"/>
+	   <dynamics damping = "1.0" friction ="1.0"/>
 	</joint>
 
 	<joint name="WheelL_cont" type="continuous">

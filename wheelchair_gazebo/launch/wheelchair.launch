@@ -15,9 +15,9 @@
   <arg name="load_rviz" default="false"/>
 
   <!-- Determine whether to load Twist/velocity/effort publishers -->
-  <arg name="load_twist_publisher" default="true"/>
+  <arg name="load_twist_publisher" default="false"/>
   <arg name="load_torque_publisher" default="false"/>
-  <arg name="load_velocity_publisher" default="false"/>
+  <arg name="load_velocity_publisher" default="true"/>
   <arg name="load_rqt_robot_steering" default="false"/>
   <arg name="log_data" default="true"/>
   <arg name="load_rqt_gui" default="false"/>
@@ -63,6 +63,10 @@
   <!-- record model states in a rosbag file -->
   <node name="rosbag_record_modelstate" pkg="rosbag" type="record"
         args = "-o wheelchair_odom /odom/frame" if="$(arg load_twist_publisher)">
+  </node>
+
+  <node name="rosbag_record_modelstate" pkg="rosbag" type="record"
+        args = "-o wheelchair_odom /odom/frame" if="$(arg load_velocity_publisher)">
   </node>
 
   <!-- node to read effort commands from cvs and publish to gazebo model -->

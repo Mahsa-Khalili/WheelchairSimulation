@@ -9,7 +9,7 @@ import time
 
 rospack = rospkg.RosPack()
 pkg_path = rospack.get_path('wheelchair_gazebo')
-filename = os.path.join(pkg_path, 'scripts/StraightF_T1_WS64_Mahsa.csv')
+filename = os.path.join(pkg_path, 'scripts/Obstacles35_T1.csv')
 
 def VelocityControl():
 	# initialize node
