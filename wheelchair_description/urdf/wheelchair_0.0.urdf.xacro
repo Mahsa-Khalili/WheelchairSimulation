@@ -150,8 +150,8 @@
 	   <child link="Left-Caster-Yaw"/>
 	   <origin xyz="0.35956 0.24291 0.1517"/>
 	   <axis xyz="0 0 -1"/>
-	   <limit effort= "100" lower = "${lower}" upper = "${upper}" velocity = "10"/>
-	   <dynamics damping = "1.0" friction ="1.0"/>
+	   <limit effort= "1000" velocity = "10"/>
+	   <dynamics damping = "0.0" friction ="1.0"/>
 	</joint>
 
 	<joint name="Wheelchair-base-Right-Caster-Yaw" type="continuous">
@@ -159,8 +159,8 @@
 	   <child link="Right-Caster-Yaw"/>
 	   <origin xyz="0.35956 -0.24291 0.1517"/>
 	   <axis xyz="0 0 1"/>
-	   <limit effort= "100" lower = "${lower}" upper = "${upper}" velocity = "10"/>
-	   <dynamics damping = "1.0" friction ="1.0"/>
+	   <limit effort= "1000" velocity = "10"/>
+	   <dynamics damping = "0.0" friction ="1.0"/>
 	</joint>
 
 	<joint name="WheelL_cont" type="continuous">
@@ -168,8 +168,8 @@
 	   <child link="Left-Wheel"/>
 	   <origin xyz="-0 0.26808 0.305"/>
 	   <axis xyz="0 1 0"/>
-	   <limit effort= "100" lower = "${lower}" upper = "${upper}" velocity = "10"/>
-	   <dynamics damping = "1.0" friction ="0.00263"/>
+	   <limit effort= "1000" velocity = "10"/>
+	   <dynamics damping = "0.0" friction ="0.00263"/>
 	</joint>
 
 	<joint name="WheelR_cont" type="continuous">
@@ -177,51 +177,51 @@
 	   <child link="Right-Wheel"/>
 	   <origin xyz="0 -0.26808 0.305"/>
 	   <axis xyz="0 1 0"/>
-	   <limit effort= "100" lower = "${lower}" upper = "${upper}" velocity = "10"/>
-	   <dynamics damping = "1.0" friction ="0.00263"/>
+	   <limit effort= "1000"  velocity = "10"/>
+	   <dynamics damping = "0.0" friction ="0.00263"/>
 	</joint>
 
 	<joint name="Left-Caster-Yaw-Left-Caster-Wheel" type="continuous">
 	   <parent link="Left-Caster-Yaw"/>
 	   <child link="Left-Caster-Wheel"/>
-	   <origin xyz="-0.04295 -0.00183 -0.0917"/>
+	   <origin xyz="-0.03295 -0.00183 -0.0917"/>
 	   <axis xyz="0 1 0"/>
-	   <limit effort= "10" lower = "${lower}" upper = "${upper}" velocity = "10"/>
+	   <limit effort= "1000" velocity = "10"/>
 	   <dynamics damping = ".0" friction ="0.000918"/>
 	</joint>
 
 	<joint name="Right-Caster-Yaw-Right-Caster-Wheel" type="continuous">
 	   <parent link="Right-Caster-Yaw"/>
 	   <child link="Right-Caster-Wheel"/>
-	   <origin xyz="-0.04295 0.00183 -0.0917"/>
+	   <origin xyz="-0.03295 0.00183 -0.0917"/>
 	   <axis xyz="0 1 0"/>
-	   <limit effort= "100" lower = "${lower}" upper = "${upper}" velocity = "10"/>
+	   <limit effort= "1000" velocity = "10"/>
 	   <dynamics damping = ".0" friction ="0.000918"/>
 	</joint>
-
-	
-
-	
 	
     <transmission name="Wheelchair_base_Left_Wheel-trans">
       	<type>transmission_interface/SimpleTransmission</type>
       	<actuator name="Wheelchair_base_Left_Wheel-motor">
+      		<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
         	<mechanicalReduction>1</mechanicalReduction>
      	</actuator>
       	<joint name="WheelL_cont">
-        	<hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
-        	<!-- <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface> -->
+        	<!-- <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface> -->
+        	<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
       	</joint>
-    </transmission>
+    </transmission> 
 
     <transmission name="Wheelchair_base_Right_Wheel-trans">
       	<type>transmission_interface/SimpleTransmission</type>
       	<actuator name="Wheelchair_base_Right_Wheel-motor">
+      		<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
         	<mechanicalReduction>1</mechanicalReduction>
       	</actuator>
       	<joint name="WheelR_cont">
-        	<hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
-        	<!-- <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface> -->
+        	<!-- <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface> -->
+        	<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
       	</joint>
     </transmission>
+
+
 </robot>

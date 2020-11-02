@@ -9,7 +9,7 @@ import time
 
 rospack = rospkg.RosPack()
 pkg_path = rospack.get_path('wheelchair_gazebo')
-filename = os.path.join(pkg_path, 'scripts/StraightF_T1_WS64_Mahsa.csv')
+filename = os.path.join(pkg_path, 'scripts/StraightF_T1_Experiment_Ref.csv')
 
 def EffortControl():
 	# initialize node
@@ -29,7 +29,7 @@ def EffortControl():
 		# print(rowcount)
 		
 		for row in data:
-			print(row[5], row[6])
+			# print(row[5], row[6])
 			left_torque = float(row[5])
 			right_torque = float(row[6])
 

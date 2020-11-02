@@ -9,7 +9,7 @@ import time
 
 rospack = rospkg.RosPack()
 pkg_path = rospack.get_path('wheelchair_gazebo')
-filename = os.path.join(pkg_path, 'scripts/Obstacles35_T1.csv')
+filename = os.path.join(pkg_path, 'scripts/Obstacles35_T1_Experiment_Ref.csv')
 
 def VelocityControl():
 	# initialize node
@@ -29,7 +29,7 @@ def VelocityControl():
 		# print(rowcount)
 		
 		for row in data:
-			print(row[1], row[2])
+			# print(row[1], row[2])
 			left_vel = float(row[1])
 			right_vel = float(row[2])
 
