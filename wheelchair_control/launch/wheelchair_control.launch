@@ -1,16 +1,22 @@
 <launch>
 
   <!-- Load swing arm controller configurations from YAML file to parameter server -->
-  <rosparam file="$(find wheelchair_control)/config/swingarms_controller.yaml" command="load"/>
+  <!-- <rosparam file="$(find wheelchair_control)/config/swingarms_controller.yaml" command="load"/> -->
 
   <!-- Load wheel controller configurations from YAML file to parameter server -->
-  <rosparam file="$(find wheelchair_control)/config/wheels_diffdrive_controller.yaml" command="load"/>
+  <!-- <rosparam file="$(find wheelchair_control)/config/wheels_diffdrive_controller.yaml" command="load"/> -->
 
   <!-- Load wheel efort controller configurations from YAML file to parameter server -->
-  <rosparam file="$(find wheelchair_control)/config/wheels_effort_controller.yaml" command="load"/>
+  <!-- <rosparam file="$(find wheelchair_control)/config/wheels_effort_controller.yaml" command="load"/> -->
 
   <!-- Load wheel velocity controller configurations from YAML file to parameter server -->
   <rosparam file="$(find wheelchair_control)/config/wheels_velocity_controller.yaml" command="load"/>
+
+  <!-- Load wheel velocity controller configurations from YAML file to parameter server -->
+<!--   <rosparam file="$(find wheelchair_control)/config/effort_velocity_controller.yaml" command="load"/>
+ -->
+  <!-- Load wheel velocity controller configurations from YAML file to parameter server -->
+  <rosparam file="$(find wheelchair_control)/config/state_controller.yaml" command="load"/>
 
   <!-- list of controllers>
     /mobile_base_controller 
@@ -23,6 +29,6 @@
     /WheelR_velocity_controller"/> --> 
 
   <node name="controller_spawner" pkg="controller_manager" type="spawner" 
-        args="/WheelL_effort_controller  /WheelR_effort_controller /joint_state_controller"/>
+        args="/joint_state_controller /WheelL_velocity_controller /WheelR_velocity_controller"/>
 
 </launch> 

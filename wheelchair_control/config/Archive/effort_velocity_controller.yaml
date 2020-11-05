@@ -1,0 +1,21 @@
+# Effort Controllers ---------------------------------------
+WheelL_effort_controller:
+  type: effort_controllers/JointEffortController
+  joint: WheelL_cont
+  pid: {p: 300.0, i: 0.01, d: 0.0}
+
+WheelR_effort_controller:
+  type: effort_controllers/JointEffortController
+  joint: WheelR_cont
+  pid: {p: 300.0, i: 0.01, d: 0.0}
+
+# velocity Controllers ---------------------------------------
+WheelL_velocity_controller:
+  type: effort_controllers/JointVelocityController
+  joint: WheelL_cont
+  pid: {p: 300.0, i: 0.01, d: 0.0}
+
+WheelR_velocity_controller:
+  type: effort_controllers/JointVelocityController
+  joint: WheelR_cont
+  pid: {p: 300.0, i: 0.01, d: 0.0}

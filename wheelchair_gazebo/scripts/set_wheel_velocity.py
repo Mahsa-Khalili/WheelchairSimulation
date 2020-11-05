@@ -9,7 +9,7 @@ import time
 
 rospack = rospkg.RosPack()
 pkg_path = rospack.get_path('wheelchair_gazebo')
-filename = os.path.join(pkg_path, 'scripts/Obstacles35_T1_Experiment_Ref.csv')
+filename = os.path.join(pkg_path, 'scripts/StraightF_T1_Experiment_Ref.csv')
 
 def VelocityControl():
 	# initialize node
@@ -25,24 +25,21 @@ def VelocityControl():
 	with open(filename, 'rb') as csvfile:
 		csvfile.readline()
 		data = csv.reader(csvfile, delimiter=',')
-		# rowcount = sum(1 for row in data)
-		# print(rowcount)
 		
 		for row in data:
-			# print(row[1], row[2])
+			print(row[1], row[2])
 			left_vel = float(row[1])
 			right_vel = float(row[2])
 
 			# publish twist command to wheelchair
 			velocity_left_pub.publish(left_vel)
 			velocity_right_pub.publish(right_vel)
-
 			rate.sleep()
 
 		left_vel = 0.0
 		right_vel = 0.0
 
-		while not rospy.is_shutdosn():
+		while not rospy.is_shutdown():
 			velocity_left_pub.publish(left_vel)
 			velocity_right_pub.publish(right_vel)
 			rate.sleep()

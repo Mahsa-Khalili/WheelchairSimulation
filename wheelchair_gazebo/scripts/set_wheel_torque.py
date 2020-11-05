@@ -42,7 +42,7 @@ def EffortControl():
 		left_torque = 0.0
 		right_torque = 0.0
 
-		while not rospy.is_shutdosn():
+		while not rospy.is_shutdown():
 			effort_left_pub.publish(left_torque)
 			effort_right_pub.publish(right_torque)
 			rate.sleep()

@@ -122,13 +122,13 @@
 
   	<link name="Right-Wheel">
 	  	<visual>
-	  		<origin rpy  = "0 -0 0" xyz = "0 0.26808 -0.305"/>
+	  		<origin rpy  = "0.0 0.0 0.0" xyz = "0.0 0.26808 -0.305"/>
 	  		<geometry>
 		  		<mesh scale=" 1 1 1" filename = "package://wheelchair_description/meshes/Right-Wheel.STL"/>
 		  	</geometry>
 	  	</visual>
 	  	<collision>
-        	<origin rpy  = "0 -0 0" xyz = "0 0.26808 -0.305"/>
+        	<origin rpy  = "0.0 0.0 0.0" xyz = "0.0 0.26808 -0.305"/>
         	<geometry>
           		<mesh scale=" 1 1 1" filename = "package://wheelchair_description/meshes/Right-Wheel_col.STL"/>
         	</geometry>
@@ -166,7 +166,7 @@
 	<joint name="WheelL_cont" type="continuous">
 	   <parent link="base_link"/>
 	   <child link="Left-Wheel"/>
-	   <origin xyz="-0 0.26808 0.305"/>
+	   <origin xyz="0.0 0.26808 0.305"/>
 	   <axis xyz="0 1 0"/>
 	   <limit effort= "1000" velocity = "10"/>
 	   <dynamics damping = "0.0" friction ="0.00263"/>
@@ -222,6 +222,5 @@
         	<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
       	</joint>
     </transmission>
-
 
 </robot>
